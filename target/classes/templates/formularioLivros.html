@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<link rel="stylesheet" href="/static/formlivros.css" />
+<head>
+    <meta charset="UTF-8">
+    <title>Adicionar Livro</title>
+</head>
+<style>
+    body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+form {
+    background-color: #fff;
+    width: 400px;
+    margin: 40px auto;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+label {
+    display: block;
+    margin-bottom: 15px;
+    color: #555;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type="submit"] {
+    width: 100%;
+    padding: 12px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+.back-link {
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+    text-decoration: none;
+    color: #007BFF;
+}
+
+.back-link:hover {
+    text-decoration: underline;
+}
+</style>
+<body>
+<h1>Adicionar Livro</h1>
+<form action="/addLivro" method="post" th:object="${livro}">
+    <label>Título: <input type="text" th:field="*{titulo}" /></label><br/>
+    <label>Autor: <input type="text" th:field="*{autor}" /></label><br/>
+    <label>Ano de Publicação: <input type="text" th:field="*{anoPub}" /></label><br/>
+    <input type="submit" value="Salvar" />
+    <a href="/livros" class="btn btn-secondary"><i class="bi bi-arrow-left"></i> Voltar</a>
+</form>
+</body>
+</html>
